@@ -1,27 +1,42 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Clock from './Clock'
-import Moment from 'moment'
+import {Button} from 'react-bootstrap'
+import './Period.css';
 
 class Period extends React.Component {
-    constructor(props) {
-      super(props);
+
+    skip(){
+      this.props.onComplete(this.props.id);
     }
 
     render() {
       var display;
-      if(this.props.show){
+      var button;
+      var style = "ticker";
+
+      if(this.props.active){
           display = 
-          <Clock 
-            id={this.props.id} 
-            onComplete={this.props.onComplete}
-            active={this.props.active} 
-            endDate={this.props.endDate}
-           />;
+          <div>
+              <Clock 
+                id={this.props.id} 
+                onComplete={this.props.onComplete}
+                active={this.props.active} 
+                endDate={this.props.endDate}/>         
+           </div>;
+           button = <Button className="next" bsSize="small" onClick={() => this.skip()}>Skip</Button>;
+           style = "ticker active"
+      }else if(this.props.complete){
+        display = "Done";
+      }else{
+        display = this.props.name;
       }
+
       return (
-        <div>
-          <h3>{this.props.name}</h3>
-          {display}
+        <div className="group">
+          <div className={style}>
+            {display}    
+          </div>
+          {button}
         </div>
       );
     }

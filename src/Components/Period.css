@@ -1,0 +1,25 @@
+
+.group {
+    display: inline-block;
+    position: relative;
+    margin: 0.5em;
+}
+
+.ticker {
+    width: 3em;
+    height: 3em;
+    text-align: center;
+    line-height: 3em;
+    border-radius: 2em;
+    background: lightblue;
+    color: white;
+    position: relative;
+  }
+  
+.active {
+    background: dodgerblue;
+}
+
+.next {
+    margin-top: 0.5em;
+}
