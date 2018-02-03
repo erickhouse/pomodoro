@@ -1,6 +1,7 @@
 {
   "name": "pomodoro",
   "version": "0.1.0",
+  "homepage" : "http://erickhouse.github.io/pomodoro",
   "private": true,
   "dependencies": {
     "moment": "^2.20.1",
